@@ -19,8 +19,11 @@ import {
 	YAxis,
 	Tooltip,
 	Legend,
+	AreaChart,
+	Area,
 } from 'recharts';
-
+import MenuIcon from '@mui/icons-material/Menu';
+import ContactsIcon from '@mui/icons-material/Contacts';
 interface HomeProps {}
 
 export const Home: React.FC<HomeProps> = ({}) => {
@@ -63,9 +66,17 @@ export const Home: React.FC<HomeProps> = ({}) => {
 
 	return (
 		<div className='container'>
+			<div className='header'>
+				<MenuIcon className='icon'/>
+				<p className='title'> DataMoney </p>
+				<ContactsIcon className='icon'/>
+			</div>
+		<div className='body'>
+			<div className='section1'>
+				<p className='subtitle'>Escolha a moeda que deseja ver o câmbio:</p>
 			<FormControl
-				sx={{ minWidth: 150, marginTop: 10, marginBottom: 20 }}
-			>
+				sx={{ minWidth: 200,  }}
+				>
 				<InputLabel>Moedas</InputLabel>
 				<Select value={coin} label='Moedas' onChange={handleChange}>
 					<MenuItem value='USD-BRL'>Dolar</MenuItem>
@@ -73,8 +84,24 @@ export const Home: React.FC<HomeProps> = ({}) => {
 					<MenuItem value='BTC-BRL'>Bitcoin</MenuItem>
 				</Select>
 			</FormControl>
-
-			<LineChart
+				</div>
+		<div className='section2'> 
+			<AreaChart
+				width={500}
+				height={400}
+				data={data}
+				margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+			>
+				<CartesianGrid strokeDasharray='3 3' />
+				<XAxis dataKey='create_date' />
+				<YAxis />
+				<Tooltip />
+				<Area type='monotone' dataKey='bid' stroke="#5abf9a" fill="#5abf9a" />
+				<Legend />
+			</AreaChart>
+			</div>
+		</div>
+			{/* <LineChart
 				width={730}
 				height={250}
 				data={data}
@@ -86,7 +113,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
 				<YAxis />
 				<Tooltip />
 				<Legend />
-			</LineChart>
+			</LineChart> */}
 		</div>
 	);
 };
