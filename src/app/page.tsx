@@ -4,12 +4,14 @@ import axios from 'axios';
 import Image from 'next/image';
 import './index.css';
 import {
+	BottomNavigation,
 	Box,
 	Button,
 	FormControl,
 	InputLabel,
 	MenuItem,
 	Select,
+	Typography,
 } from '@mui/material';
 import {
 	LineChart,
@@ -24,6 +26,7 @@ import {
 } from 'recharts';
 import MenuIcon from '@mui/icons-material/Menu';
 import ContactsIcon from '@mui/icons-material/Contacts';
+
 interface HomeProps {}
 
 export const Home: React.FC<HomeProps> = ({}) => {
@@ -49,9 +52,9 @@ export const Home: React.FC<HomeProps> = ({}) => {
 				setData(k);
 				window.setTimeout(() => {
 					call(coin, k);
-				}, 10000);
+				}, 3000);
 			})
-			//feito isso pro value ficar igual à key de cada moeda da api,
+			//feito isso pro value ficar igual à key da api de cada moeda da api,
 			.catch(function (error) {
 				console.error(error);
 			})
@@ -63,58 +66,60 @@ export const Home: React.FC<HomeProps> = ({}) => {
 	};
 	console.log(infos);
 	console.log('DATA', data);
+	// if () {
 
+	// }
 	return (
-		<div className='container'>
-			<div className='header'>
-				<MenuIcon className='icon'/>
-				<p className='title'> DataMoney </p>
-				<ContactsIcon className='icon'/>
-			</div>
-		<div className='body'>
-			<div className='section1'>
-				<p className='subtitle'>Escolha a moeda que deseja ver o câmbio:</p>
-			<FormControl
-				sx={{ minWidth: 200,  }}
-				>
-				<InputLabel>Moedas</InputLabel>
-				<Select value={coin} label='Moedas' onChange={handleChange}>
-					<MenuItem value='USD-BRL'>Dolar</MenuItem>
-					<MenuItem value='EUR-BRL'>Euro</MenuItem>
-					<MenuItem value='BTC-BRL'>Bitcoin</MenuItem>
-				</Select>
-			</FormControl>
-				</div>
-		<div className='section2'> 
-			<AreaChart
-				width={500}
-				height={400}
-				data={data}
-				margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-			>
-				<CartesianGrid strokeDasharray='3 3' />
-				<XAxis dataKey='create_date' />
-				<YAxis />
-				<Tooltip />
-				<Area type='monotone' dataKey='bid' stroke="#5abf9a" fill="#5abf9a" />
-				<Legend />
-			</AreaChart>
-			</div>
-		</div>
-			{/* <LineChart
-				width={730}
-				height={250}
-				data={data}
-				margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-			>
-				<Line type='monotone' dataKey='bid' stroke='#8884d8' />
-				<CartesianGrid strokeDasharray='5 5' />
-				<XAxis dataKey='create_date' />
-				<YAxis />
-				<Tooltip />
-				<Legend />
-			</LineChart> */}
-		</div>
+		<Box className='container'>
+			<Box className='header'>
+				<MenuIcon className='icon' />
+				<Typography className='title'> DataMoney </Typography>
+				<ContactsIcon className='icon' />
+			</Box>
+			<Box className='body'>
+				<Box className='section'>
+					<Typography className='sobre'>Sobre</Typography>
+					<Typography className='text'>
+						A DataMoney veio para facilitar a consulta da cotação
+						(bid), após a escolha da moeda o gráfico irá retornar
+						atualizações a cada 30 segundos.
+					</Typography>
+				</Box>
+				<Box className='section1'>
+					<Typography className='subtitle'>
+						Escolha a moeda que deseja ver o câmbio:
+					</Typography>
+					<FormControl sx={{ minWidth: 120 }}>
+						<InputLabel>Moedas</InputLabel>
+						<Select
+							value={coin}
+							label='Moedas'
+							onChange={handleChange}
+						>
+							<MenuItem value='USD-BRL'>Dólar</MenuItem>
+							<MenuItem value='EUR-BRL'>Euro</MenuItem>
+							<MenuItem value='BTC-BRL'>Bitcoin</MenuItem>
+						</Select>
+					</FormControl>
+				</Box>
+				<Box className='section2'>
+					<AreaChart width={500} height={450} data={data}>
+						<CartesianGrid strokeDasharray='3 3' />
+						<XAxis dataKey='create_date' />
+						<YAxis />
+						<Tooltip />
+						<Area
+							type='monotone'
+							dataKey='bid'
+							stroke='#8c6dd6'
+							fill='#8c6dd6'
+						/>
+						<Legend />
+					</AreaChart>
+				</Box>
+			</Box>
+			<BottomNavigation className='footer'></BottomNavigation>
+		</Box>
 	);
 };
 
