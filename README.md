@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A ideia por trás deste projeto é oferecer uma maneira simples e intuitiva de obter informações sobre a cotação das moedas: dólar, euro e bitcoin. Com esta ferramenta de select, os usuários podem escolher a moeda que deseja saber a cotação e após isso os dados são direcionados ao gráfico ao lado, que está exibindo a cotação da moeda pelo tempo, os dados são atualizados à cada 30 segundos.
 
-## Getting Started
+Este projeto utiliza a API Awesime API (API de cotações) de dados públicos para recuperar informações atualizadas sobre os países. Os dados são apresentados de forma clara e organizada na interface do usuário, facilitando a compreensão e o acesso às informações desejadas.
 
-First, run the development server:
+Obs: Os ícones do header são apenas figurativos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Ferramentas utilizadas:
+1-  ReactJS: utilizei devido ao meu conhecimento em relação a essa ferramenta e devido aos benefícios que ela proporciona, como:
+.Componentização é um dos grandes qualidades do react, pois permite a criação de componentes reutilizáveis, promovendo dessa forma uma estrutura de código mais organizada e modular, facilitando a manutenção e o desenvolvimento.
+Além de outros fatores, como: perfomance; jsx(permirte utilizar html no código);
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2- Material UI (reactjs libra): uma biblioteca muito boa que auxilia no processo de codificação devido aos seus componentes e funções.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3-TypeScript: mais vantajoso do que o utilizar o JavaScript, pois:
+.Tipagem: todas props necessitam que seja declarado seu tipo(string, number e etc), dessa forma aos desenvolvedores detectar erros de tipo em tempo de compilação, antes mesmo de executar o código.
+Assim como outros fatores: legibilidade do código; alerta detalhadamente os erros existentes, gerando maior produtividade.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
