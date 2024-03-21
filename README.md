@@ -22,7 +22,7 @@ Para iniciar o projeto localmente, siga as etapas abaixo:
 
 1. Certifique-se de ter o npm instalado na sua máquina.
 
-git clone https://github.com/Caio-crl/desafio-rzk.git
-cd desafio-rzk
-npm install
-npm run dev
+- git clone https://github.com/Caio-crl/desafio-rzk.git
+- cd desafio-rzk
+- npm install
+- npm run dev
