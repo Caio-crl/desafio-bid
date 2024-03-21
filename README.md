@@ -18,7 +18,6 @@ Também existem outros fatores, como: perfomance e jsx (permite utilizar html no
 Outros fatores importantes: legibilidade do código e alertas de detalhadamento dos erros existentes que geram maior produtividade.
 
 -Instruções para inicialização: 
-Para iniciar o projeto localmente, siga as etapas abaixo:
 
 1. Certifique-se de ter o npm instalado na sua máquina.
 
