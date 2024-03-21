@@ -76,8 +76,9 @@ export const Home: React.FC<HomeProps> = ({}) => {
 					<Typography fontSize={'40px'} marginInline={'10px'}  textAlign={'center'}>Sobre</Typography>
 					<Typography fontSize={'22px'} color={'#091d42'} textAlign={'center'} marginInline={'10px'}>
 						A DataMoney veio para facilitar a consulta da cotação
-						(bid), após a escolha da moeda o gráfico irá retornar
-						atualizações a cada 30 segundos.
+						(bid). 
+						Após a escolha da moeda, o gráfico irá realizar
+						atualizações da cotação a cada 30 segundos.
 					</Typography>
 				</Box>
 				<Box width={'100%'} textAlign={'center'} sx={{backgroundColor:'white'}}>
