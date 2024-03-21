@@ -15,7 +15,7 @@ Também existem outros fatores, como: perfomance e jsx (permite utilizar html no
 
 3-TypeScript: mais vantajoso do que o utilizar o JavaScript, pois:
 .Tipagem: todas props necessitam que seja declarado seu tipo (string, number e etc), dessa forma os desenvolvedores detectam os erros de tipagem no tempo de compilação, antes mesmo de executar o código.
-Outros fatores importantes: legibilidade do código e alertas de detalhadamento dos erros existentes que geram maior produtividade.
+Outros fatores importantes: legibilidade do código e alertas de detalhamento dos erros existentes que geram maior produtividade.
 
 - Instruções para inicialização: 
 
