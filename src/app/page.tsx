@@ -37,7 +37,6 @@ export const Home: React.FC<HomeProps> = ({}) => {
 		bid: '',
 		create_date: '',
 	});
-
 	const call = (coin: string, previousData: any) => {
 		axios
 			.get(`https://economia.awesomeapi.com.br/last/${coin}`)
@@ -52,13 +51,12 @@ export const Home: React.FC<HomeProps> = ({}) => {
 					call(coin, k);
 				}, 30000);
 			})
-			
 			.catch(function (error) {
 				console.error(error);
 			})
 			.finally(function () {});
-			
 	};
+	console.log(data);
 	const handleChange = (event: any) => {
 		setCoin(event.target.value);
 		call(event.target.value, []);
@@ -66,54 +64,95 @@ export const Home: React.FC<HomeProps> = ({}) => {
 
 	return (
 		<Box>
-			<Box width={'100%'} display={'flex'} alignItems={'center'} justifyContent={'space-around'} height={'200px'} sx={{backgroundColor:'#091d42'}}>
-				<MenuIcon sx={{fontSize:'30px', color:'white'}} />
-				<Typography fontSize={'70px'} color={'white'} alignSelf={'center'}> DataMoney </Typography>
-				<ContactsIcon sx={{fontSize:'30px', color:'white'}} />
+			<Box
+				width={'100%'}
+				display={'flex'}
+				alignItems={'center'}
+				justifyContent={'space-around'}
+				height={'200px'}
+				sx={{ backgroundColor: '#091d42' }}
+			>
+				<MenuIcon sx={{ fontSize: '30px', color: 'white' }} />
+				<Typography
+					fontSize={'70px'}
+					color={'white'}
+					alignSelf={'center'}
+				>
+					DataMoney
+				</Typography>
+				<ContactsIcon sx={{ fontSize: '30px', color: 'white' }} />
 			</Box>
-			<Box display={'flex'} flexDirection={'row'} alignItems={'center'} justifyContent={'space-around'} height={'500px'} sx={{backgroundColor:'white'}}>
-				<Box display={'flex'} flexDirection={'column'} justifyContent={'center'} height={'100%'} sx={{backgroundColor:'#5ABF9A'}}>
-					<Typography fontSize={'40px'} marginInline={'10px'}  textAlign={'center'}>Sobre</Typography>
-					<Typography fontSize={'22px'} color={'#091d42'} textAlign={'center'} marginInline={'10px'}>
+			<Box
+				display={'flex'}
+				flexDirection={'row'}
+				alignItems={'center'}
+				justifyContent={'space-around'}
+				height={'500px'}
+				sx={{ backgroundColor: 'white' }}
+			>
+				<Box
+					display={'flex'}
+					flexDirection={'column'}
+					justifyContent={'center'}
+					height={'100%'}
+					sx={{ backgroundColor: '#5ABF9A' }}
+				>
+					<Typography
+						fontSize={'40px'}
+						marginInline={'10px'}
+						textAlign={'center'}
+					>
+						Sobre
+					</Typography>
+					<Typography
+						fontSize={'22px'}
+						color={'#091d42'}
+						textAlign={'center'}
+						marginInline={'10px'}
+					>
 						A DataMoney veio para facilitar a consulta da cotação
-						(bid). 
-						Após a escolha da moeda, o gráfico irá realizar
+						(bid). Após a escolha da moeda, o gráfico irá realizar
 						atualizações da cotação a cada 30 segundos.
 					</Typography>
 				</Box>
-				<Box width={'100%'} textAlign={'center'} sx={{backgroundColor:'white'}}>
+				<Box
+					width={'100%'}
+					textAlign={'center'}
+					sx={{ backgroundColor: 'white' }}
+				>
 					<Typography fontSize={'20px'} marginBottom={'10px'}>
 						Escolha a moeda que deseja ver o câmbio:
 					</Typography>
-					{coin? 
-					<FormControl sx={{ minWidth: 120 }}>
-						<InputLabel>Moedas</InputLabel>
-						<Select
-							value={coin}
-							label='Moedas'
-							onChange={handleChange}
-							disabled={true}
-						>
-							<MenuItem value='USD-BRL'>Dólar</MenuItem>
-							<MenuItem value='EUR-BRL'>Euro</MenuItem>
-							<MenuItem value='BTC-BRL'>Bitcoin</MenuItem>
-						</Select>
-					</FormControl> 
-						:
-					<FormControl sx={{ minWidth: 120 }}>
-						<InputLabel>Moedas</InputLabel>
-						<Select
-							value={coin}
-							label='Moedas'
-							onChange={handleChange}
-						>
-							<MenuItem value='USD-BRL'>Dólar</MenuItem>
-							<MenuItem value='EUR-BRL'>Euro</MenuItem>
-							<MenuItem value='BTC-BRL'>Bitcoin</MenuItem>
-						</Select>
-					</FormControl>}
+					{coin ? (
+						<FormControl sx={{ minWidth: 120 }}>
+							<InputLabel>Moedas</InputLabel>
+							<Select
+								value={coin}
+								label='Moedas'
+								onChange={handleChange}
+								disabled={true}
+							>
+								<MenuItem value='USD-BRL'>Dólar</MenuItem>
+								<MenuItem value='EUR-BRL'>Euro</MenuItem>
+								<MenuItem value='BTC-BRL'>Bitcoin</MenuItem>
+							</Select>
+						</FormControl>
+					) : (
+						<FormControl sx={{ minWidth: 120 }}>
+							<InputLabel>Moedas</InputLabel>
+							<Select
+								value={coin}
+								label='Moedas'
+								onChange={handleChange}
+							>
+								<MenuItem value='USD-BRL'>Dólar</MenuItem>
+								<MenuItem value='EUR-BRL'>Euro</MenuItem>
+								<MenuItem value='BTC-BRL'>Bitcoin</MenuItem>
+							</Select>
+						</FormControl>
+					)}
 				</Box>
-				<Box width={'100%'} sx={{backgroundColor:'white'}}>
+				<Box width={'100%'} sx={{ backgroundColor: 'white' }}>
 					<AreaChart width={500} height={450} data={data}>
 						<CartesianGrid strokeDasharray='3 3' />
 						<XAxis dataKey='create_date' />
