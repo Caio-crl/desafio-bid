@@ -17,7 +17,7 @@ Também existem outros fatores, como: perfomance e jsx (permite utilizar html no
 .Tipagem: todas props necessitam que seja declarado seu tipo (string, number e etc), dessa forma os desenvolvedores detectam os erros de tipagem no tempo de compilação, antes mesmo de executar o código.
 Outros fatores importantes: legibilidade do código e alertas de detalhadamento dos erros existentes que geram maior produtividade.
 
--Instruções para inicialização: 
+- Instruções para inicialização: 
 
 1. Certifique-se de ter o npm instalado na sua máquina.
 
